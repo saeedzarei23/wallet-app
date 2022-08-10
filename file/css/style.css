@@ -1,0 +1,58 @@
+@font-face {
+  font-family: dana;
+  src: url(/file/font/dana-regular.woff2);
+}
+@font-face {
+  font-family: yekan;
+  src: url(/file/font/iranyekanwebregular.woff2);
+}
+* {
+  font-family: dana;
+}
+header {
+  text-align: center;
+}
+.clac {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-direction: column */
+  /* width: fit-content; */
+}
+.box1 {
+  display: flex;
+  justify-content: flex-start;
+  text-align: right;
+  flex-direction: column;
+  padding: 0.225rem;
+}
+.detail {
+  display: flex;
+  justify-content: space-around;
+  height: 40vh;
+  margin-top: 2rem;
+}
+.budget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.expence-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 60vw; */
+}
+#option{
+  font-size: 2rem;
+  text-align: center;
+}
+.detail {
+  overflow-y: scroll;
+}
+section{
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+}
