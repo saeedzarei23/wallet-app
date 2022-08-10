@@ -1,10 +1,10 @@
 @font-face {
   font-family: dana;
-  src: url(/file/font/dana-regular.woff2);
+  src: url(dana-regular.woff2);
 }
 @font-face {
   font-family: yekan;
-  src: url(/file/font/iranyekanwebregular.woff2);
+  src: url(iranyekanwebregular.woff2);
 }
 * {
   font-family: dana;
@@ -55,4 +55,7 @@ section{
   display: flex;
   justify-content: space-around;
   width: 50vw;
+}
+.show{
+  background-color:  black;
 }
