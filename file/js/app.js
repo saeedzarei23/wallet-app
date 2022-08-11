@@ -8,7 +8,9 @@ const form = document.querySelector("#clac"),
   //   this the div that we are going to add expece to it
   hazine = document.querySelector(".hazine"),
   section = document.querySelector("#section"),
+  chart = document.querySelector(".chart"),
   income = document.querySelector(".income-detail");
+
 
 // this varibel is for number of buget
 let userBudget, budget;
@@ -42,7 +44,7 @@ class pageElemant {
     div.classList.add("expence-box");
     div.innerHTML = `<span class="name-expance">${name}</span>
     <span id="ex-num" class="amount-expance">${amount}</span>
-    <button id="remove-expance" class="amount-expance">X</button>`;
+    <button id="remove-expance" class="delet">X</button>`;
     hazine.appendChild(div);
   }
   addIncome(name, amount) {
@@ -50,7 +52,7 @@ class pageElemant {
     div.classList.add("expence-box");
     div.innerHTML = `<span class="name-expance">${name}</span>
     <span id="in-num" class="amount-income">${amount}</span>
-    <button id="remove-income" class="amount-expance">X</button>`;
+    <button id="remove-income" class="delet">X</button>`;
     income.appendChild(div);
   }
   trackbudget(amount) {
@@ -60,6 +62,9 @@ class pageElemant {
   addmore(amount) {
     const moneyLeft = budget.substarckfromBudget(amount);
     budgetText.innerHTML = `بودجه  ${moneyLeft} ${"$"}`;
+  }
+  pieChart() {
+    
   }
 }
 
@@ -76,30 +81,31 @@ form.addEventListener("submit", (e) => {
   if (reduceOrPlus === "minus") {
     page.addExpenstolist(name, amount);
     page.addmore(amount);
+    page.pieChart();
   } else {
     page.addIncome(name, amount);
     page.addBudget(amount);
     page.trackbudget(amount);
+    page.pieChart();
   }
   if (budget.budget === 0 || budget.budget < 0) {
     alert("پولت تمام شده بلند شو برو کار کن");
     return;
   }
 });
-document.addEventListener("click", (e) => {
+section.addEventListener("click", (e) => {
   const removeIncome = document.querySelector("#remove-income");
   const removeExpence = document.querySelector("#remove-expance");
-  const amountExpence = Number(document.querySelector("#ex-num").innerText);
-  const amountIncome = Number(document.querySelector("#in-num").innerText);
   if (e.target === removeExpence) {
-    e.target.parentElement.remove();
+    const amountIncome = Number(document.querySelector("#in-num").innerText);
+    removeExpence.closest('.expence-box').remove();
     page.trackbudget(amountIncome);
   }
   if (e.target === removeIncome) {
-    e.target.parentElement.remove();
+    const amountExpence = Number(document.querySelector("#ex-num").innerText);
+    removeIncome.parentElement.remove();
     page.addmore(amountExpence);
   }
-  console.log(e.target); 
 });
 document.addEventListener("DOMContentLoaded", function () {
   userBudget = prompt("بودجه شما چقدر است");
@@ -107,9 +113,27 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.reload();
   } else {
     budget = new BudgetCalc(userBudget);
-
     page.addBudget(budget.budget);
+    // ;page.pieChart(budget.budget)
   }
 });
 
 const page = new pageElemant();
+
+// let pieChart= new Chart(myChart,{
+//   type:'pie',
+//   data:{
+//     labels:[`${name}`,],
+//     datasets:[{
+//      label:'income' ,
+//      data:[
+//       `${data}`
+//      ],
+//      backgroundColor:[
+//       'green',
+//       'blue'
+//      ]
+//     }]
+//   },
+//   option:{}
+// })

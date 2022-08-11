@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>wallet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link rel="stylesheet" href="file/css/style.css" />
   </head>
   <body>
@@ -14,40 +15,48 @@
     <div class="clac">
       <form id="clac" action="">
         <div class="box1">
-          <label for="name">اسم هزینه</label>
+          <h1>مقادیر خود را وارد کنید</h1>
+        </div>
+        <div class="box1">
+          <label for="name">اسم </label>
           <input id="name" type="text" />
         </div>
         <div class="box1">
           <label for="amount">مقدار </label>
           <input id="amount" type="text" />
+        </div>
+        <div class="box1">
+          <label for="year"> اضافه شدن به مخارج یا درامد</label>
           <div class="box1">
-            <label for="year"> اضافه شدن به مخارج یا درامد</label>
-            <div class="box1">
-              <select id="option">
-                <option value="plus">+</option>
-                <option value="minus">-</option>
-              </select>
-            </div>
-            <button id="btn">ثبت نهایی</button>
+            <select id="option">
+              <option value="plus">+</option>
+              <option value="minus">-</option>
+            </select>
           </div>
         </div>
+        <div class="box1">
+          <button id="btn">ثبت نهایی</button>
+        </div>
       </form>
-    </div>
-    <div class="detail">
-      <div class="budget">
-        <h1 id="budget-text">بودجه: $</h1>
+      <div class="detail">
+        
+        <div class="budget">
+          <h1 id="budget-text">بودجه: $</h1>
+        </div>
+        <section id="section">
+          <div class="expence">
+            <div class="titel"><h2>مخارج شما طی ماه</h2></div>
+            <div class="hazine"></div>
+          </div>
+          <div class="income">
+            <div class="titel"><h2>درامد شما طی ماه</h2></div>
+            <div class="income-detail"></div>
+          </div>
+        </section>
       </div>
-
-      <section id="section">
-        <div class="expence">
-          <div class="titel"><h2>مخارج شما طی ماه</h2></div>
-          <div class="hazine"></div>
-        </div>
-        <div class="income">
-          <div class="titel"><h2>درامد شما طی ماه</h2></div>
-          <div class="income-detail"></div>
-        </div>
-      </section>
+      <!-- <div class="chart">
+        <canvas id="myChart" width="280" height="280"></canvas>
+      </div> -->
     </div>
     <script src="file/js/app.js"></script>
   </body>
