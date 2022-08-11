@@ -25,10 +25,10 @@ border: 10px solid #002d45;
   /* flex-direction: column */
   /* width: fit-content; */
 }
-#chart {
-  /* display: flex; */
-  /* width: fit-content; */
-}
+/* #chart {
+  display: flex;
+  width: fit-content;
+} */
 #myChart {
   width: 300px;
   height: 150px;

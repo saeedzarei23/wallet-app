@@ -114,26 +114,28 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     budget = new BudgetCalc(userBudget);
     page.addBudget(budget.budget);
+    const ctx = document.getElementById('myChart').getContext('2d');
+let pieChart= new Chart(ctx,{
+  type:'pie',
+  data:{
+    labels:['bg',],
+    datasets:[{
+     label:'income' ,
+     data:[
+      `${budget.budget}`
+     ],
+     backgroundColor:[
+      '#002d45',
+      '#dfab63'
+     ]
+    }]
+  },
+  option:{}
+})
     // ;page.pieChart(budget.budget)
+
   }
 });
 
 const page = new pageElemant();
 
-// let pieChart= new Chart(myChart,{
-//   type:'pie',
-//   data:{
-//     labels:[`${name}`,],
-//     datasets:[{
-//      label:'income' ,
-//      data:[
-//       `${data}`
-//      ],
-//      backgroundColor:[
-//       'green',
-//       'blue'
-//      ]
-//     }]
-//   },
-//   option:{}
-// })
