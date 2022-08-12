@@ -10,7 +10,7 @@ const form = document.querySelector("#clac"),
   section = document.querySelector("#section"),
   chart = document.querySelector(".chart"),
   income = document.querySelector(".income-detail");
-  const ctx = document.getElementById('myChart').getContext('2d');
+const ctx = document.getElementById("myChart").getContext("2d");
 
 
 // this varibel is for number of buget
@@ -37,7 +37,7 @@ class BudgetCalc {
 
 class pageElemant {
   addBudget(amount) {
-    budgetText.innerHTML = `بودجه  ${amount} ${"$"}`;
+    budgetText.innerHTML = `${"$"} بودجه  ${amount} `;
   }
 
   addExpenstolist(name, amount) {
@@ -64,9 +64,7 @@ class pageElemant {
     const moneyLeft = budget.substarckfromBudget(amount);
     budgetText.innerHTML = `بودجه  ${moneyLeft} ${"$"}`;
   }
-  pieChart() {
-    
-  }
+  pieChart() {}
 }
 
 form.addEventListener("submit", (e) => {
@@ -78,7 +76,7 @@ form.addEventListener("submit", (e) => {
   // this is  for our diffrent option that we can chose if we want to add expance to list or buget
   const reduceOrPlus = document.querySelector("#option").value;
   if (amount === "" || name === "") return;
-  
+
   if (reduceOrPlus === "minus") {
     page.addExpenstolist(name, amount);
     page.addmore(amount);
@@ -86,7 +84,6 @@ form.addEventListener("submit", (e) => {
     page.addIncome(name, amount);
     page.addBudget(amount);
     page.trackbudget(amount);
-  ;
   }
   if (budget.budget === 0 || budget.budget < 0) {
     alert("پولت تمام شده بلند شو برو کار کن");
@@ -98,7 +95,7 @@ section.addEventListener("click", (e) => {
   const removeExpence = document.querySelector("#remove-expance");
   if (e.target === removeExpence) {
     const amountIncome = Number(document.querySelector("#in-num").innerText);
-    removeExpence.closest('.expence-box').remove();
+    removeExpence.closest(".expence-box").remove();
     page.trackbudget(amountIncome);
   }
   if (e.target === removeIncome) {
@@ -115,27 +112,29 @@ document.addEventListener("DOMContentLoaded", function () {
     budget = new BudgetCalc(userBudget);
     page.addBudget(budget.budget);
 
-let pieChart= new Chart(ctx,{
-  type:'pie',
-  data:{
-    labels:['بودجه',],
-    datasets:[{
-     label:'بودجه' ,
-     data:[
-      `${budget.budget}`
-     ],
-     backgroundColor:[
-      '#002d45',
-      '#dfab63'
-     ]
-    }]
-  },
-  option:{}
-})
-// ;page.pieChart(budget.budget)
-
-}
+    let pieChart= new Chart(ctx,{
+      type:'pie',
+      data:{
+        labels:['بودجه',],
+        datasets:[{
+         label:'بودجه' ,
+         data:[
+          `${budget.budget}`
+         ],
+         backgroundColor:[
+          '#002d45',
+          '#dfab63'
+         ],
+         hoverBorderColor:'#dfab63'
+        }]
+      },
+      option:{}
+    })
+    // const ddd= pieChart.config._config.data.datasets[0].data.push([9000])
+    // ;page.pieChart(budget.budget)
+  }
 });
 
 const page = new pageElemant();
+
 
