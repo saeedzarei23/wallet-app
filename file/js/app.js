@@ -37,7 +37,7 @@ class BudgetCalc {
 
 class pageElemant {
   addBudget(amount) {
-    budgetText.innerHTML = `${"$"} بودجه  ${amount} `;
+    budgetText.innerHTML = `${"$"} موجودی  ${amount} `;
   }
 
   addExpenstolist(name, amount) {
@@ -58,11 +58,11 @@ class pageElemant {
   }
   trackbudget(amount) {
     const moneyadd = budget.budgetPlus(amount);
-    budgetText.innerHTML = `بودجه  ${moneyadd} ${"$"}`;
+    budgetText.innerHTML = `موجودی  ${moneyadd} ${"$"}`;
   }
   addmore(amount) {
     const moneyLeft = budget.substarckfromBudget(amount);
-    budgetText.innerHTML = `بودجه  ${moneyLeft} ${"$"}`;
+    budgetText.innerHTML = `موجودی   ${moneyLeft} ${"$"}`;
   }
   pieChart() {}
 }
@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
     page.addBudget(budget.budget);
 
     let pieChart= new Chart(ctx,{
-      type:'pie',
+      type:'doughnut',
       data:{
-        labels:['بودجه',],
+        labels:['موجودی'],
         datasets:[{
          label:'بودجه' ,
          data:[
-          `${budget.budget}`
+          `${budget.budget}`,9000
          ],
          backgroundColor:[
           '#002d45',
