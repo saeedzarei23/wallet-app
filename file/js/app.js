@@ -112,24 +112,26 @@ document.addEventListener("DOMContentLoaded", function () {
     budget = new BudgetCalc(userBudget);
     page.addBudget(budget.budget);
 
-    let pieChart= new Chart(ctx,{
-      type:'doughnut',
-      data:{
-        labels:['موجودی'],
-        datasets:[{
-         label:'بودجه' ,
-         data:[
-          `${budget.budget}`,9000
-         ],
-         backgroundColor:[
-          '#002d45',
-          '#dfab63'
-         ],
-         hoverBorderColor:'#dfab63'
-        }]
-      },
-      option:{}
-    })
+    // let pieChart= new Chart(ctx,{
+    //   type:'doughnut',
+    //   data:{
+    //     labels:['موجودی'],
+    //     datasets:[{
+    //      label:'بودجه' ,
+    //      data:[
+    //       `${budget.budget}`
+    //      ],
+    //      backgroundColor:[
+    //       '#002d45',
+    //       '#dfab63'
+    //      ],
+    //      hoverBorderColor:'#dfab63'
+    //     }]
+    //   },
+    //   option:{
+    //     responsive: true
+    //   }
+    // })
     // const ddd= pieChart.config._config.data.datasets[0].data.push([9000])
     // ;page.pieChart(budget.budget)
   }
