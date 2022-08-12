@@ -64,7 +64,7 @@ header {
   background-color: #002d45;
   width: 20vw;
   padding: 10px 5px;
-  margin-bottom: 1.125em;
+  /* margin-bottom: 1.125em; */
   border: 1px solid #dfab63;
 }
 .titel {
