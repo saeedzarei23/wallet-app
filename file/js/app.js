@@ -10,6 +10,7 @@ const form = document.querySelector("#clac"),
   section = document.querySelector("#section"),
   chart = document.querySelector(".chart"),
   income = document.querySelector(".income-detail");
+  const ctx = document.getElementById('myChart').getContext('2d');
 
 
 // this varibel is for number of buget
@@ -77,16 +78,15 @@ form.addEventListener("submit", (e) => {
   // this is  for our diffrent option that we can chose if we want to add expance to list or buget
   const reduceOrPlus = document.querySelector("#option").value;
   if (amount === "" || name === "") return;
-
+  
   if (reduceOrPlus === "minus") {
     page.addExpenstolist(name, amount);
     page.addmore(amount);
-    page.pieChart();
   } else {
     page.addIncome(name, amount);
     page.addBudget(amount);
     page.trackbudget(amount);
-    page.pieChart();
+  ;
   }
   if (budget.budget === 0 || budget.budget < 0) {
     alert("پولت تمام شده بلند شو برو کار کن");
@@ -114,13 +114,13 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     budget = new BudgetCalc(userBudget);
     page.addBudget(budget.budget);
-    const ctx = document.getElementById('myChart').getContext('2d');
+
 let pieChart= new Chart(ctx,{
   type:'pie',
   data:{
-    labels:['bg',],
+    labels:['بودجه',],
     datasets:[{
-     label:'income' ,
+     label:'بودجه' ,
      data:[
       `${budget.budget}`
      ],
@@ -132,9 +132,9 @@ let pieChart= new Chart(ctx,{
   },
   option:{}
 })
-    // ;page.pieChart(budget.budget)
+// ;page.pieChart(budget.budget)
 
-  }
+}
 });
 
 const page = new pageElemant();
